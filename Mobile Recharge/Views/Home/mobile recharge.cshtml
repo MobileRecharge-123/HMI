@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5 text-center">
+
+    <div class="quick-actions mb-5">
+        <a href="/Recharge/TopUp" class="action-button">🔋 Online Recharge</a>
+        <a href="/Account/Login" class="action-button">👤 My Account</a>
+        <a href="/Home/Feedback" class="action-button">💬 Give Feedback</a>
+    </div>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <div id="myCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/t.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/ai.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/o.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" />
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <div class="container my-5 text-center">
+        <h2 class="mb-4">🔥 Special Offers 🔥  </h2>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+
+            <div class="card" style="width: 140px;">
+                <img src="/watch.jpg" class="card-img-top" style="height: 100px; object-fit: cover;" alt="Apple Watch 3500QR">
+                <div class="card-body p-2">
+                    <h6 class="card-title mb-0">Apple Watch 3299QR</h6>
+                </div>
+            </div>
+
+            <div class="card" style="width: 140px;">
+                <img src="/iphone.jpg" class="card-img-top" style="height: 100px; object-fit: cover;" alt="iPhone 16 3500QR">
+                <div class="card-body p-2">
+                    <h6 class="card-title mb-0">iPhone 16 3500QR</h6>
+                </div>
+            </div>
+
+            <div class="card" style="width: 140px;">
+                <img src="/airp.jpg" class="card-img-top" style="height: 100px; object-fit: cover;" alt="AirPods 799QR">
+                <div class="card-body p-2">
+                    <h6 class="card-title mb-0">AirPods 799QR</h6>
+                </div>
+            </div>
+
+            <div class="card" style="width: 140px;">
+                <img src="/macb.jpg" class="card-img-top" style="height: 100px; object-fit: cover;" alt="macbook 7500QR ">
+                <div class="card-body p-2">
+                    <h6 class="card-title mb-0">macbook 7500QR</h6>
+                </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .quick-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .action-button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease;
+    }
+
+        .action-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+     fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    .carousel-inner img {
+        animation: fadeInUp 0.6s ease-in-out;
+    }
+</style>

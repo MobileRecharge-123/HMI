@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh; background-color: #f0f2f5;">
+    <div class="admin-login-box bg-white shadow p-5 rounded" style="width: 100%; max-width: 400px;">
+        <h3 class="text-center text-primary mb-4">🔐 Admin Login</h3>
+
+        <form method="post" asp-action="Login" asp-controller="Admin">
+            <div class="mb-3">
+                <label for="Username" class="form-label">Username</label>
+                <input type="text" name="Username" id="Username" class="form-control" placeholder="Enter admin username" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="Password" class="form-label">Password</label>
+                <input type="password" name="Password" id="Password" class="form-control" placeholder="Enter password" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </form>
+    </div>
+</div>
+
+<style>
+    .admin-login-box input {
+        height: 45px;
+    }
+
+    .admin-login-box button {
+        font-weight: bold;
+    }
+
+    .admin-login-box {
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    keyframes fadeIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+</style>

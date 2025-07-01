@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "View Feedback";
+}
+
+<h2 class="page-title">🗨️ View Feedback</h2>
+
+<table class="table table-striped table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Feedback ID</th>
+            <th>User</th>
+            <th>Message</th>
+            <th>Date Submitted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Loop through feedback model *@
+        <tr>
+            <td>501</td>
+            <td>Jane Smith</td>
+            <td>Great service, keep it up!</td>
+            <td>2025-06-30</td>
+        </tr>
+    </tbody>
+</table>
+
+<style>
+    .page-title {
+        margin-top: 20px;
+        color: #007bff;
+        font-weight: bold;
+    }
+</style>

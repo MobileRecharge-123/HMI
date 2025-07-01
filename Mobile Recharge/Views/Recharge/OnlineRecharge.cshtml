@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Online Recharge</h2>
+
+<form method="post" action="/Recharge/TopUp">
+    <label>Enter Mobile Number:</label>
+    <input type="tel" name="mobile" required maxlength="10" pattern="[0-9]{10}" /><br /><br />
+    <button type="submit">Proceed</button>
+</form>

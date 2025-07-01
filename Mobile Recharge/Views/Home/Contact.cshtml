@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="contact-container">
+    <h2>📞 Contact Us</h2>
+    <p>For inquiries or assistance, feel free to contact us through any of the following channels:</p>
+
+    <ul class="contact-list">
+        <li>
+            <i class="fa fa-phone"></i>
+            <strong>Phone:</strong> +974 1234 5678
+        </li>
+        <li>
+            <i class="fa fa-envelope"></i>
+            <strong>Email:</strong> <a href="mailto:support@hmi.qa">support@hmi.qa</a>
+        </li>
+        <li>
+            <i class="fa fa-map-marker"></i>
+            <strong>Address:</strong> Doha, Qatar
+        </li>
+    </ul>
+</div>
+
+<style>
+    .contact-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f5f7fa;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+        .contact-container h2 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        font-size: 18px;
+    }
+
+        .contact-list li {
+            margin-bottom: 15px;
+        }
+
+        .contact-list i {
+            margin-right: 10px;
+            color: #1a73e8;
+        }
+
+    a {
+        color: #1a73e8;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<!-- رابط FontAwesome للأيقونات -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />

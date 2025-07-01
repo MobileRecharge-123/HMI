@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Context.Session.GetString("Role") != "Admin")
+{
+    <div class="alert alert-danger mt-5 text-center">
+        ❌ Access Denied. You are not authorized to view this page.
+    </div>
+    return;
+}
+
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">🔐 Admin Dashboard</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <a href="/Admin/Users" class="admin-tile bg-primary text-white">
+                👥<br />
+                <span class="tile-label">Manage Users</span>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="/Admin/RechargePlans" class="admin-tile bg-success text-white">
+                📱<br />
+                <span class="tile-label">Manage Recharge Plans</span>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="/Admin/Feedback" class="admin-tile bg-warning text-dark">
+                🗨️<br />
+                <span class="tile-label">View Feedback</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .admin-tile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        height: 150px;
+    }
+
+        .admin-tile:hover {
+            transform: translateY(-5px);
+            text-decoration: none;
+        }
+
+    .tile-label {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+</style>

@@ -1,0 +1,106 @@
+﻿@model List<MobileRechargeWebsite.Models.RechargePlan>
+
+@{
+    ViewData["Title"] = "Mobile Top-Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container topup-wrapper mt-5 mb-5 animate-fade">
+    <h2 class="text-primary text-center mb-4">📱 Mobile Top-Up</h2>
+
+    <form method="post" asp-controller="Recharge" asp-action="ConfirmTopUp" class="shadow p-4 bg-white rounded-4 border border-light">
+        <div class="mb-4">
+            <label for="mobileNumber" class="form-label fw-semibold">Mobile Number</label>
+            <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" maxlength="8" required placeholder="Enter mobile number" />
+        </div>
+
+        <h5 class="text-secondary mb-3 fw-semibold">💰 Select a Recharge Plan:</h5>
+
+        <table class="table table-bordered table-hover shadow-sm bg-white">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>Amount</th>
+                    <th>Validity</th>
+                    <th>Description</th>
+                    <th>Choose</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var plan in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@plan.Amount.ToString("0.00") QAR</td>
+                            <td class="text-center">@plan.Validity</td>
+                            <td>@plan.Description</td>
+                            <td class="text-center">
+                                <input type="radio" name="amount" value="@plan.Amount" required />
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">No recharge plans available.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary px-4 mt-3">Recharge Now</button>
+        </div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+        }
+
+        @if (ViewBag.Success != null)
+        {
+            <div class="alert alert-success mt-3">@ViewBag.Success</div>
+        }
+    </form>
+</div>
+
+<style>
+    .topup-wrapper {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .animate-fade {
+        animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .form-label {
+        color: #333;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+        padding: 12px;
+    }
+
+    .btn-outline-primary {
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    .alert {
+        font-weight: 500;
+        text-align: center;
+    }
+</style>

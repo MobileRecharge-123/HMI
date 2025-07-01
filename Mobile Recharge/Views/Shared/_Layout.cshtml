@@ -1,0 +1,152 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Mobile Recharge Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+            nav a:hover {
+                text-decoration: underline;
+                color: #ddd;
+            }
+
+        .user-info {
+            color: white;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 30px 20px;
+            flex: 1;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .user-info {
+            margin-top: 10px;
+        }
+
+        }
+    </style>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @{
+        var userMobile = HttpContextAccessor.HttpContext?.Session.GetString("UserName");
+        var isLoggedIn = !string.IsNullOrEmpty(userMobile);
+    }
+
+    <header>
+        <h1>
+            <a href="/" style="color: white; text-decoration: none;">
+                🔋 Mobile Recharge Portal
+            </a>
+        </h1>
+        @if (isLoggedIn)
+        {
+            <p style="margin:0;">Welcome, @userMobile</p>
+        }
+    </header>
+
+    <nav>
+        <a href="/Recharge/TopUp">Online Recharge</a>
+
+        @if (isLoggedIn)
+        {
+            <span class="user-info">@userMobile</span>
+            <a href="/Recharge/PostPaid">Postpaid Bill Payment</a>
+            <a href="/Account/Logout">Logout</a>
+        }
+     
+           
+        
+
+        else
+        {
+            <a href="/Account/Login">Login</a>
+            <a href="/Account/Register">Register</a>
+        }
+
+        <a href="/Home/Feedback">Feedback</a>
+        <a href="/Home/SiteMap">Site Map</a>
+        <a href="/Home/About">About Us</a>
+        <a href="/Home/Contact">Contact Us</a>
+        <a href="/Home/CustomerCare">Customer Care</a>
+        <a href="/Admin/Dashboard">🔐 Admin Panel</a>
+
+    </nav>
+
+    <main>
+        @RenderBody()
+
+    </main>
+
+    <footer>
+        &copy; 2025 Mobile Recharge Co.
+    </footer>
+
+</body>
+</html>

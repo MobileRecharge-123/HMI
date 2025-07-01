@@ -1,0 +1,123 @@
+﻿@model MobileRechargeWebsite.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+      <!-- لو عندك Layout خاص غيره، رجعيه -->
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+
+    <style>
+        body {
+            background: #f0f2f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .register-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px; /* ترفع شوية عن فوق */
+        }
+
+        .register-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .register-title {
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #0d6efd;
+        }
+
+        .form-control {
+            border-radius: 6px;
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            border-radius: 6px;
+            background-color: #0d6efd;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-wrapper">
+        <div class="register-card">
+            <h2 class="register-title">Register</h2>
+
+            @* عرض رسالة الخطأ إذا موجودة *@
+            @if (ViewBag.Error != null)
+            {
+                <div class="error">@ViewBag.Error</div>
+            }
+
+            <form method="post" action="/Account/Register">
+                <div class="mb-3">
+                    <label for="MobileNumber" class="form-label">Mobile Number</label>
+                    <input type="text" id="MobileNumber" name="MobileNumber" class="form-control" placeholder="Enter your mobile number" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Full Name</label>
+                    <input type="text" id="Name" name="FullName" class="form-control" placeholder="Enter your full name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="password" id="Password" name="Password" class="form-control" placeholder="Enter your password" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="Confirm your password" required />
+                </div>
+
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

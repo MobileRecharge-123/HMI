@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Post Paid Bill Payment</h2>
+
+<form method="post" action="/Recharge/ConfirmPostPaid">
+    <label>Enter your Postpaid Mobile Number:</label>
+    <input type="text" name="postpaidNumber" maxlength="10" pattern="\\d{10}" required />
+
+    <label>Amount to Pay (QAR):</label>
+    <input type="number" name="amount" min="1" required />
+
+    <button type="submit">Pay Now</button>
+</form>
